@@ -87,7 +87,21 @@ export const constantRoutes = [
         meta: { title: '个人中心', icon: 'user' }
       }
     ]
-  }
+  },
+  // {
+  //   path: '/device',
+  //   component: Layout,
+  //   hidden: true,
+  //   redirect: 'index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/device/deviceInfo/index'),
+  //       name: 'device',
+  //       meta: { title: '设备信息', icon: 'user' }
+  //     }
+  //   ]
+  // }
 ]
 
 // 动态路由，基于用户权限动态去加载
