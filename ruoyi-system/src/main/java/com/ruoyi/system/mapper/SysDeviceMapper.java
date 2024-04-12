@@ -6,6 +6,7 @@ package com.ruoyi.system.mapper;/*
 import java.util.List;
 
 import com.ruoyi.common.core.domain.entity.SysDevice;
+import com.ruoyi.common.core.domain.entity.SysUser;
 
 public interface SysDeviceMapper {
     /**
@@ -14,4 +15,11 @@ public interface SysDeviceMapper {
      * @return 设备信息集合
      */
     public List<SysDevice> selectDeviceList(SysDevice sysDevice);
+
+    /**
+     * 添加设备信息
+     * @param device 设备信息
+     * @return 结果
+     */
+    public int insert(SysDevice device);
 }

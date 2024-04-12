@@ -5,13 +5,15 @@ package com.ruoyi.web.controller.SysDevice;/*
  */
 
 import com.ruoyi.common.core.controller.BaseController;
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.entity.SysDevice;
+import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.page.TableDataInfo;
 import com.ruoyi.system.service.ISysDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import static com.ruoyi.common.utils.PageUtils.startPage;
 
@@ -33,5 +35,10 @@ public class SysDeviceController extends BaseController {
         startPage();
         List<SysDevice> sysDeviceList = sysDeviceService.selectDeviceList(sysDevice);
         return getDataTable(sysDeviceList);
+    }
+    @PostMapping("/addDevice")
+    public AjaxResult addDevice(@Validated @RequestBody SysDevice device){
+        System.out.println(device);
+        return toAjax( sysDeviceService.addDevice(device));
     }
 }

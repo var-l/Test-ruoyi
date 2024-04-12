@@ -6,13 +6,17 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.ruoyi.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 import static com.baomidou.mybatisplus.annotation.IdType.AUTO;
 
 /**
  * 设备信息表
  */
+@EqualsAndHashCode(callSuper = true)
 @TableName("device")
 @Data
 @NoArgsConstructor
@@ -35,10 +39,11 @@ public class SysDevice extends BaseEntity {
     private String location;
 
     @TableField("status")
-    private Integer status;
+    private int status=0;
 
-    @TableField("remake")
-    private String remake;
-
+    @TableField("remark")
+    private String remark;
+    @TableField("delete_at")
+    private Date deleteAt;
 
 }
