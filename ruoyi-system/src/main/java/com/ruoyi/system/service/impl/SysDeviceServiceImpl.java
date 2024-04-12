@@ -23,4 +23,11 @@ public class SysDeviceServiceImpl implements ISysDeviceService {
     public List<SysDevice> selectDeviceList(SysDevice sysDevice) {
         return sysDeviceMapper.selectDeviceList(sysDevice);
     }
+
+    @Override
+    public boolean addDevice(SysDevice sysDevice) {
+        System.out.println(sysDevice);
+        sysDevice.setStatus(0);
+        return  sysDeviceMapper.insert(sysDevice) >0;
+    }
 }
