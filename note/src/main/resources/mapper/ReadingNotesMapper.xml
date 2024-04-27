@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.note.mapper.ReadingNotesMapper">
+
+    <insert id="createReadingNotes" parameterType="com.note.entity.ReadingNotes">
+        insert into `ry-vue`.reading_notes (content,created_time,created_at) values (#{content},#{createdTime},#{createdAt})
+    </insert>
+
+    <select id="selectList" resultType="com.note.entity.ReadingNotes">
+        select * from `ry-vue`.reading_notes
+    </select>
+
+
+
+</mapper>

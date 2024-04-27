@@ -60,7 +60,10 @@
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-generator</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.note</groupId>
+            <artifactId>note</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
