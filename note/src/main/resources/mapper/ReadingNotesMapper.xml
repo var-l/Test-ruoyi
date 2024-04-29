@@ -3,11 +3,19 @@
 <mapper namespace="com.note.mapper.ReadingNotesMapper">
 
     <insert id="createReadingNotes" parameterType="com.note.entity.ReadingNotes">
-        insert into `ry-vue`.reading_notes (content,created_time,created_at) values (#{content},#{createdTime},#{createdAt})
+        insert into `ry-vue`.reading_notes (content,title,role_id,created_time,created_at) values (#{title},#{roleId},#{content},#{createdTime},#{createdAt})
     </insert>
 
-    <select id="selectList" resultType="com.note.entity.ReadingNotes">
-        select * from `ry-vue`.reading_notes
+    <select id="selectList" parameterType="com.note.entity.ReadingNotes" resultType="com.note.entity.ReadingNotes">
+        SELECT
+        id, content, title, role_id, created_time, created_at
+        FROM
+        `ry-vue`.reading_notes
+        WHERE
+        deleted_time IS NULL
+        <if test="id != null and id !=''">AND id = #{id}</if>
+        <if test="title != null and title !='' ">AND title LIKE CONCAT('%', #{title}, '%')</if>
+        <if test="createdAt != null and createdAt!=''">AND created_at LIKE CONCAT('%', #{createdAt}, '%')</if>
     </select>
 
 

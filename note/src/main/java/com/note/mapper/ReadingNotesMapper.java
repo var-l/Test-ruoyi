@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface ReadingNotesMapper {
-    public List<ReadingNotes> selectList();
+    public List<ReadingNotes> selectList(ReadingNotes readingNotes);
 
     public int createReadingNotes(ReadingNotes data);
 }

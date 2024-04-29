@@ -27,6 +27,9 @@ public class ReadingNotes extends BaseEntity{
     @TableField("content")
     private String content;
 
+    @TableField("title")
+    private String title;
+
     @TableField("deleted_time")
     private Date deletedTime;
 

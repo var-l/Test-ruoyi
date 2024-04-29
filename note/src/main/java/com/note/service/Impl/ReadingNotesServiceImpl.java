@@ -25,9 +25,9 @@ public class ReadingNotesServiceImpl implements ReadingNotesService {
     private ReadingNotesMapper readingNotesMapper;
 
     @Override
-    public List<ReadingNotes> selectList() {
-        System.out.println("nihao");
-        return readingNotesMapper.selectList();
+    public List<ReadingNotes> selectList(ReadingNotes readingNotes) {
+        System.out.println(readingNotes);
+        return readingNotesMapper.selectList(readingNotes);
     }
 
     @Override

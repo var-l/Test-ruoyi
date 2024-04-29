@@ -8,12 +8,12 @@ import com.note.entity.ReadingNotes;
 import com.note.service.ReadingNotesService;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
-import io.lettuce.core.dynamic.annotation.Param;
+import com.ruoyi.common.core.page.TableDataInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
@@ -23,10 +23,12 @@ public class ReadingNotesController extends BaseController {
     @Autowired
     private ReadingNotesService readingNotesService;
     @GetMapping("/getList")
-    public List<ReadingNotes> getList(){
-        System.out.println("你好");
-       List<ReadingNotes> list = readingNotesService.selectList();
-        return list;
+    public TableDataInfo getList(ReadingNotes readingNotes ){
+        logger.info("getList");
+        logger.info(String.valueOf(readingNotes));
+        startPage();
+       List<ReadingNotes> list = readingNotesService.selectList(readingNotes);
+       return getDataTable(list);
     }
 
     @PostMapping("/create")
